@@ -13,13 +13,13 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.crozin.wykop.sdk.domain.Link;
 import com.crozin.wykop.sdk.domain.Profile;
+import com.crozin.wykop.sdk.domain.Entry;
 import com.crozin.wykop.sdk.exception.ApiException;
 import com.crozin.wykop.sdk.exception.ConnectionException;
 import com.crozin.wykop.sdk.exception.CredentialsException;
@@ -234,7 +234,7 @@ public class Session {
 	private String mapToHttpData(Map<String, String> data) throws UnsupportedEncodingException {
 		StringBuilder postData = new StringBuilder();
 		
-		for (Entry<String, String> entry : data.entrySet()) {
+		for (Map.Entry<String, String> entry : data.entrySet()) {
 			if (postData.length() > 0) {
 				postData.append("&");
 			}

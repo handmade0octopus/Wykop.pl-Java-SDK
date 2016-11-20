@@ -6,7 +6,8 @@ import com.crozin.wykop.sdk.AvatarQuality;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-@JsonIgnoreProperties({ "email", "is_observed", "sex" })
+//@JsonIgnoreProperties({ "email", "is_observed", "sex" , "signup_date", "violation_url", "url", "is_blocked"})
+//@JsonIgnoreProperties(ignoreUnknown = true)
 public class Profile {
 	public enum Group {
 		GREEN         (0, "Zielony", 0x339933),
@@ -52,17 +53,16 @@ public class Profile {
 	
 	@JsonProperty("login")
 	private String username;
-	
+
+	@JsonProperty("email")
+	private String privateEmail;
+
 	@JsonProperty("public_email")
 	private String email;
-	
-	@JsonProperty("author_group")
-	private Integer group;
-	
+
+	@JsonProperty("name")
 	private String name;
-	private String about;
-	private String city;
-	
+
 	@JsonProperty("www")
 	private URL website;
 	
@@ -71,6 +71,15 @@ public class Profile {
 	
 	@JsonProperty("gg")
 	private Integer ggAccount;
+
+	@JsonProperty("city")
+	private String city;
+
+	@JsonProperty("about")
+	private String about;
+
+	@JsonProperty("author_group")
+	private Integer group;
 	
 	@JsonProperty("links_added")
 	private Integer addedLinksCount;
@@ -80,9 +89,21 @@ public class Profile {
 	
 	@JsonProperty("comments")
 	private Integer commentsCount;
+
+	@JsonProperty("rank")
+	private Integer rankPosition;
+
+	@JsonProperty("followers")
+	private Integer followersCount;
+
+	@JsonProperty("following")
+	private Integer followingCount;
 	
 	@JsonProperty("entries")
 	private Integer entriesCount;
+
+	@JsonProperty("entries_comments")
+	private Integer entriesCommentsCount;
 	
 	@JsonProperty("diggs")
 	private Integer diggsCount;
@@ -90,29 +111,45 @@ public class Profile {
 	@JsonProperty("buries")
 	private Integer buriesCount;
 	
-	@JsonProperty("followers")
-	private Integer followersCount;
-	
-	@JsonProperty("following")
-	private Integer followingCount;
-	
 	@JsonProperty("groups")
 	private Integer groupsCount;
-	
-	@JsonProperty("rank")
-	private Integer rankPosition;
-	
+
+	@JsonProperty("related_links")
+	private Integer related_links;
+
+	@JsonProperty("singup_date")
+	private String singupDate;
+
 	@JsonProperty("avatar")
 	private URL defaultAvatar;
-	
-	@JsonProperty("avatar_lo")
-	private URL lowQualityAvatar;
+
+	@JsonProperty("avatar_big")
+	private URL highQualityAvatar;
 	
 	@JsonProperty("avatar_med")
 	private URL mediumQualityAvatar;
-	
-	@JsonProperty("avatar_big")
-	private URL highQualityAvatar;
+
+	@JsonProperty("avatar_lo")
+	private URL lowQualityAvatar;
+
+
+	@JsonProperty("is_observed")
+	private boolean isObserved;
+
+	@JsonProperty("is_blocked")
+	private boolean isBlocked;
+
+	@JsonProperty("sex")
+	private String sex;
+
+	@JsonProperty("url")
+	private URL url;
+
+	@JsonProperty("violation_url")
+	private URL violation_url;
+
+
+
 	
 	public String getUsername() {
 		return username;

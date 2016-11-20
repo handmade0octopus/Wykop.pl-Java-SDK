@@ -9,6 +9,7 @@ import com.crozin.wykop.sdk.json.DateDeserializer;
 import com.crozin.wykop.sdk.json.TagsDeserializer;
 import com.crozin.wykop.sdk.util.DeserializationUtils;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
