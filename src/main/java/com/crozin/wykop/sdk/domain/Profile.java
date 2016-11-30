@@ -150,6 +150,7 @@ public class Profile {
 
 
 
+
 	
 	public String getUsername() {
 		return username;
@@ -243,4 +244,6 @@ public class Profile {
 			return defaultAvatar;
 		}
 	}
+
+
 }

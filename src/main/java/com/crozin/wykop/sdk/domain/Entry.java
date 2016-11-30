@@ -4,12 +4,15 @@ import java.net.URL;
 import java.util.Date;
 import java.util.List;
 
+import com.crozin.wykop.sdk.json.CommentsDeserializer;
 import com.crozin.wykop.sdk.json.DateDeserializer;
 import com.crozin.wykop.sdk.util.DeserializationUtils;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Entry extends MyWykop {
 	private Integer id;
 	
@@ -28,7 +31,8 @@ public class Entry extends MyWykop {
 	private Date date;
 	
 	private Boolean blocked;
-	
+
+	@JsonDeserialize(using = CommentsDeserializer.class)
 	private List<EntryComment> comments;
 	
 	@JsonProperty
@@ -48,7 +52,10 @@ public class Entry extends MyWykop {
 	
 	@JsonProperty
 	private URL receiver_avatar, receiver_avatar_med, receiver_avatar_lo, receiver_avatar_big;
-	
+
+
+	private Entry entry;
+
 	public Integer getId() {
 		return id;
 	}
